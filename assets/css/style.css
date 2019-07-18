@@ -1,0 +1,64 @@
+body {background-color:darkgreen;
+    text-align: center;
+}
+
+h1 {
+    width:100%;
+font-size: 40px;
+font-family:cursive;
+color: lightsalmon;
+margin:auto;
+text-align: center;
+margin-top: 50px;
+
+
+}
+
+.table-container{
+    position:relative;
+    text-align: center;
+min-width: 65%;
+max-width: 75%;
+
+margin:auto;
+color:blue;
+
+}
+tr, td {
+border:1px solid black;
+
+}
+
+.guess-container {
+    min-width: 65%;
+    max-width: 75%;
+    height: 100px;
+    margin:auto;
+    font-size: 35px;
+    color: orange;
+    text-align: center;
+    position:relative;
+    top: 50px;
+    
+}
+.guess-container p {
+position: relative;
+top:15px;
+border:1px solid black;
+font-size:25px;
+font-weight: bold;
+
+
+}
+
+table {
+width: 50%;
+    position: relative;
+    
+    height: 100px;
+    color:navy;
+    font-size: 25px;
+    top:75px;
+    left: 25%;
+}
+
