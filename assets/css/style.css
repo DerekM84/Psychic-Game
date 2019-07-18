@@ -62,3 +62,17 @@ width: 50%;
     left: 25%;
 }
 
+.answer{
+    height: 75px;
+    width: 75px;
+    font-size: 50px;
+    color: red;
+    font-weight: bold;
+    border:1px dotted black;
+    border-radius:25px;
+    text-align:center;
+    position:relative;
+    margin:auto;
+    top: 100px;
+}
+
