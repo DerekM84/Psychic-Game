@@ -24,29 +24,28 @@ function game() {
         // event listener for user guess, then lowercases it to match array data
         document.onkeyup = function (e) {
             var guess = e.key.toLowerCase();
-            console.log("you guessed " + guess);
-
 
             // gateway: if your guess is a valid letter
             if (letters.includes(guess)) {
-                console.log("guess is a valid letter");
+                console.log(guess + " is a valid letter");
 
                 // conditional for answer check 
                 if (guess === randomLetter) {
-
+                    wrong = [];
                     guesses= 11;
                     wins++;
-                    wrong = "";
                     document.querySelector('.guessed-letters').innerText = "";
                     document.querySelector('.wins').innerText = wins;
                     document.querySelector('.answer-p').innerText = guess;
+                    document.querySelector('.guessed-letters').innerText = wrong;
+                    wins++;
                     startRound();
                 }
 
-                // adding wrong guesses to array and preventing repeats
+                // adding wrong guesses to array and preventing repeats;
                 if (wrong.indexOf(guess) === -1) {
                     wrong.push(guess);
-
+                    console.log(wrong);
                     // after all guesses are used, add to loss and restart;
                     if (wrong.length === 10) {
                         losses++;
