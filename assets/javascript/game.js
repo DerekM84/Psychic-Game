@@ -1,73 +1,86 @@
 console.log("connected");
 
-var wins =0;
-var losses = 0;
-var guesses = 10;
-var random = "";
-var answer = "";
-var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p","q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+function game() {
 
-var wrong = [" "];
+    
+    
+    // these variables must be outside the scope of the onkeyup function
+    var wins = 0;
+    var losses = 0;
+    
+    function startRound() {
+        
+        var guesses = 10;
+        var wrong = [];
 
-document.querySelector('.wins').innerText = wins;
-document.querySelector('.losses').innerText = losses;
-document.querySelector('.guesses').innerText =  guesses;
-document.querySelector('.guessed-letters').innerHTML = wrong;
-var answer = document.querySelector('.answer');
+        var letters = ["", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-// function to choose a letter from alphabet, store it to variable
- function psychicGame() {
-        var random = letters[Math.floor(Math.random() * 27)];
-        console.log(random);
-        }
-// call function on page load
-        psychicGame();
+        // choose a letter from alphabet, store it to variable
+        var randomLetter = "";
+        var randomLetter = letters[Math.floor((Math.random() * 27)+1)];
+        console.log("Random letter is " + randomLetter);
 
-// event listener for user guess including conditionals
 
-        document.onkeyup = function(e) {
+        // event listener for user guess, then lowercases it to match array data
+        document.onkeyup = function (e) {
             var guess = e.key.toLowerCase();
-        console.log("you guessed " + guess);
-            // conditional for verifying that is a letter and determining if it was guessed already
+            console.log("you guessed " + guess);
 
+
+            // gateway: if your guess is a valid letter
             if (letters.includes(guess)) {
                 console.log("guess is a valid letter");
 
-            // conditional for answer check comparison
-                        if (guess === random) {
-                            console.log("Correct guess");
-                            wins++;
-                            answer.innerText = guess;
-                        }   
-    
-                    if (guess !== random) {
-                        
-                        if (wrong.indexOf(guess) === -1) {
-                            wrong.push(guess);
-                            console.log("wrong guess, subtracting 1")
-                            guesses--;
-                            console.log("guesses--;")
-        
-                            if(wrong.length === 9) {
-                                losses++;
-                                guesses=10;
-                                wrong = [""];
-                                console.log("losses++;")
-                                psychicGame();
-                            }
-                        }
+                // conditional for answer check 
+                if (guess === randomLetter) {
+
+                    guesses= 11;
+                    wins++;
+                    wrong = "";
+                    document.querySelector('.guessed-letters').innerText = "";
+                    document.querySelector('.wins').innerText = wins;
+                    document.querySelector('.answer-p').innerText = guess;
+                    startRound();
+                }
+
+                // adding wrong guesses to array and preventing repeats
+                if (wrong.indexOf(guess) === -1) {
+                    wrong.push(guess);
+
+                    // after all guesses are used, add to loss and restart;
+                    if (wrong.length === 10) {
+                        losses++;
+                        document.querySelector('.losses').innerText = losses;
+                        guesses = 11;
+                        wrong = [];
+                        startRound();
                     }
+                    document.querySelector('.guessed-letters').innerText = wrong;
+                    console.log("wrong guess, subtracting 1");
+                    guesses--;
+                    document.querySelector('.guesses').innerText = guesses;
+
                 }
 
             }
+        }
+    }
+
+    startRound();
+}
+    game();
+
+// }
+
+
+// call function on page load
+// psychicGame();
 
 
 
-                
-            
-         
 
-    
+
+
 
 
 

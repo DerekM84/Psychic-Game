@@ -1,4 +1,4 @@
-body {background-color:darkgreen;
+body {background-color:rgb(205, 252, 205);
     text-align: center;
 }
 
@@ -6,7 +6,7 @@ h1 {
     width:100%;
 font-size: 40px;
 font-family:cursive;
-color: lightsalmon;
+color: rgb(151, 70, 38);
 margin:auto;
 text-align: center;
 margin-top: 50px;
@@ -26,7 +26,7 @@ color:blue;
 }
 tr, td {
 border:1px solid black;
-
+width: 40px;
 }
 
 .guess-container {
@@ -35,7 +35,7 @@ border:1px solid black;
     height: 100px;
     margin:auto;
     font-size: 35px;
-    color: orange;
+    color: rgb(65, 70, 47);
     text-align: center;
     position:relative;
     top: 50px;
@@ -63,10 +63,12 @@ width: 50%;
 }
 
 .answer{
-    height: 75px;
-    width: 75px;
+    height: 200px;
+    width: 200px;
     font-size: 50px;
-    color: red;
+    background-image: url(https://cdn3.iconfinder.com/data/icons/magic/100/magic-08-512.png);
+    background-size:200px 200px;
+    color: rgb(138, 5, 143);
     font-weight: bold;
     border:1px dotted black;
     border-radius:25px;
@@ -74,5 +76,14 @@ width: 50%;
     position:relative;
     margin:auto;
     top: 100px;
+}
+
+.answer-p{
+    position:relative;
+    margin:auto;
+    top:50px;
+    left:35px;
+
+
 }
 
